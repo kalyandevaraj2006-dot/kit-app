@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VKIT Student Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{margin:0;background:#F2F4F8;color:#111827;padding-bottom:40px}
+.top{background:#0A2A6B;color:#fff;padding:28px 16px 22px;text-align:center}
+.top .badge{display:inline-block;background:#FFC107;color:#0A2A6B;font-size:11px;font-weight:800;letter-spacing:1px;padding:5px 12px;border-radius:999px}
+.top h1{margin:12px 0 4px;font-size:24px;font-weight:900;letter-spacing:-0.5px}
+.top p{margin:3px 0;font-size:13px;color:#CBD5E1}
+.top .motto{color:#FFC107;font-weight:700;margin-top:10px;font-size:12px;letter-spacing:1px}
+.nav{display:flex;gap:8px;padding:14px;max-width:600px;margin:0 auto}
+.nav button{flex:1;padding:11px;border:none;border-radius:12px;background:#fff;color:#0A2A6B;font-weight:700;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.nav button.active{background:#0A2A6B;color:#fff}
+.card{background:#fff;margin:0 auto 14px;max-width:600px;padding:22px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.tabs{display:flex;gap:6px;margin:16px 0;flex-wrap:wrap}
+.tabs button{padding:8px 14px;border:1px solid #E5E7EB;border-radius:999px;background:#F9FAFB;font-weight:600;font-size:13px;cursor:pointer}
+.tabs button.active{background:#0A2A6B;color:#fff;border-color:#0A2A6B}
+h2{color:#0A2A6B;margin:0 0 4px;font-size:20px;font-weight:800}.sub{color:#6B7280;font-size:13px;margin:0 0 16px}
+label{font-size:12px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:0.5px}
+input,select{width:100%;padding:12px;margin:6px 0 14px;border:1.5px solid #E5E7EB;border-radius:10px;font-size:15px;background:#F9FAFB;outline:none}
+input:focus,select:focus{border-color:#0A2A6B;background:#fff}
+.btn{width:100%;padding:13px;background:#0A2A6B;border:none;border-radius:12px;font-size:15px;font-weight:700;color:#fff;cursor:pointer}
+.btnGold{background:#FFC107;color:#0A2A6B}
+.btnSmall{padding:10px 14px;border-radius:10px;border:none;font-weight:700;cursor:pointer;font-size:13px}
+.msg{font-size:13px;text-align:center;min-height:18px}.err{color:#DC2626}.ok{color:#059669}
+.pill{display:inline-block;padding:5px 11px;border-radius:999px;font-size:12px;font-weight:700}
+.green{background:#ECFDF5;color:#059669}.red{background:#FEF2F2;color:#DC2626}.blue{background:#EFF6FF;color:#0A2A6B}.amber{background:#FFFBEB;color:#92400E}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.item{border:1px solid #E5E7EB;border-radius:12px;padding:14px;margin-top:10px}
+.bar{height:8px;background:#E5E7EB;border-radius:999px;overflow:hidden;margin:8px 0}.bar>div{height:100%;background:#059669}
+.hidden{display:none}.footer{text-align:center;font-size:12px;color:#9CA3AF;padding:16px;line-height:1.7}
+.avatar{width:54px;height:54px;border-radius:50%;background:#0A2A6B;color:#FFC107;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900}
+.link{text-align:center;color:#0A2A6B;font-weight:700;cursor:pointer;margin-top:12px;font-size:14px}
+.small{font-size:13px;color:#6B7280;line-height:1.6}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:#6B7280;font-size:11px;text-transform:uppercase;padding:8px}td{padding:9px 8px;border-top:1px solid #F3F4F6}
+.notice{border-left:4px solid #FFC107;background:#FFFBEB;padding:12px 14px;border-radius:8px;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="top" style="text-align:center; background:#0A2A6B; padding:28px 16px 24px; border-bottom:4px solid #FFC107;">
+  
+  <!-- REAL LOGO -->
+  <img src="logo.jpeg" style="width:92px; height:92px; border-radius:50%; background:#fff; padding:4px; object-fit:cover; display:block; margin:0 auto 14px;">
+
+  <!-- TEXT BELOW LOGO - LIKE YOUR PHOTO -->
+  <div style="color:#fff; font-size:26px; font-weight:900; letter-spacing:0.5px; margin:0;">VKIT STUDENT HUB</div>
+  <div style="color:#fff; font-size:14px; font-weight:600; margin:8px 0 3px;">Vivekananda Institute of Technology, Bengaluru</div>
+  <div style="color:#E2E8F0; font-size:13px; margin:3px 0;">Kumbalagodu, Kengeri | Affiliated to VTU | Approved by AICTE</div>
+  <div style="color:#FFC107; font-size:13px; font-weight:700; margin-top:10px;">"Education Manifests Perfection"</div>
+
+</div>
+<<br><span class="badge">
+<br><span class="badge">
+    <div class="nav"><button id="tabStudent" class="active" onclick="setRole('student')">Student</button><button id="tabTeacher" onclick="setRole('teacher')">Teacher</button><button id="tabPrincipal" onclick="setRole('principal')">Principal</button></div>
+
+<div class="card" id="authCard">
+<h2 id="authTitle">Student Login</h2><p class="sub">Login with your VKIT USN to continue</p><p id="msg" class="msg err"></p>
+<div id="studentFields">
+<label>USN</label><input id="usn" placeholder="e.g. 1VK25AI032" style="text-transform:uppercase">
+<label>Password</label><input id="pass" type="password" placeholder="Your password">
+<button class="btn btnGold" onclick="loginStudent()">Login as Student</button>
+<p class="link" onclick="toggleSignup()">New Student? Create Account</p>
+<div id="signupBox" class="hidden">
+<label>Full Name</label><input id="sName" placeholder="Full Name">
+<label>Branch</label><select id="sBranch"><option value="">Select Branch</option><option>CSE - Computer Science</option><option>ECE - Electronics & Communication</option><option>ISE - Information Science</option><option>AI&ML - AI & Machine Learning</option><option>ME - Mechanical</option><option>CE - Civil</option><option>MBA</option></select>
+<label>Semester</label><select id="sSem"><option value="">Select Sem</option><option>1st Sem</option><option>2nd Sem</option><option>3rd Sem</option><option>4th Sem</option><option>5th Sem</option><option>6th Sem</option><option>7th Sem</option><option>8th Sem</option></select>
+<label>Create Password</label><input id="sPass" type="password" placeholder="Min 4 characters">
+<button class="btn" onclick="signup()">Create Account</button></div></div>
+<div id="teacherFields" class="hidden"><label>Teacher ID</label><input id="tId" placeholder="VKIT-T001"><label>Password</label><input id="tPass" type="password" placeholder="Password"><button class="btn btnGold" onclick="loginTeacher()">Login as Teacher</button><p class="small" style="text-align:center">Demo: VKIT-T001 / vkit123</p></div>
+<div id="principalFields" class="hidden"><label>Principal ID</label><input id="pId" placeholder="VKIT-P001"><label>Password</label><input id="pPass" type="password" placeholder="Password"><button class="btn btnGold" onclick="loginPrincipal()">Login as Principal</button><p class="small" style="text-align:center">Demo: VKIT-P001 / principal123</p></div>
+</div>
+
+<div class="card hidden" id="dashCard">
+<div style="display:flex;gap:12px;align-items:center"><div class="avatar" id="avatar">K</div><div><h2 id="welcome">Welcome</h2><p class="sub" id="userInfo" style="margin:0"></p></div></div>
+<div style="margin-top:12px"><span class="pill blue" id="rolePill"></span> <span class="pill green">Professional Version</span></div>
+<div class="tabs">
+<button id="btnMarks" class="active" onclick="showTab('marks')">Marks</button>
+<button id="btnAtt" onclick="showTab('att')">Attendance</button>
+<button id="btnNotes" onclick="showTab('notes')">Notes & PYQ</button>
+<button id="btnTime" onclick="showTab('time')">Timetable</button>
+<button id="btnNews" onclick="showTab('news')">Announcements</button>
+</div>
+
+<div id="viewMarks">
+<div id="studentMarks"><h3 style="color:#0A2A6B">Internal Marks</h3><div id="myMarks"></div><div class="item"><b>Result Predictor</b><div id="predict" class="small" style="margin-top:6px"></div></div></div>
+<div id="teacherMarks" class="hidden"><h3 style="color:#0A2A6B">Add Internal Marks</h3><label>Student USN</label><input id="mUSN" placeholder="1VK25AI032" style="text-transform:uppercase"><label>Subject</label><select id="mSub"><option>Digital Electronics</option><option>Operating System</option><option>DBMS</option><option>Signals & Systems</option><option>Data Structures</option></select><div class="row"><div><label>Internal 1 /30</label><input id="m1" type="number" placeholder="25"></div><div><label>Internal 2 /30</label><input id="m2" type="number" placeholder="24"></div></div><div class="row"><div><label>Internal 3 /30</label><input id="m3" type="number" placeholder="26"></div><div><label>Assignment /10</label><input id="mA" type="number" placeholder="9"></div></div><button class="btn" onclick="saveMarks()">Save Marks</button><p id="tMsg" class="msg ok"></p><div id="teacherMarksList"></div></div>
+</div>
+
+<div id="viewAtt" class="hidden">
+<div id="studentAtt"><h3 style="color:#0A2A6B">My Attendance</h3><div id="myAtt"></div></div>
+<div id="teacherAtt" class="hidden"><h3 style="color:#0A2A6B">Mark Attendance</h3><label>Student USN</label><input id="aUSN" placeholder="1VK25AI032" style="text-transform:uppercase"><label>Subject</label><select id="aSub"><option>Digital Electronics</option><option>Operating System</option><option>DBMS</option><option>Signals & Systems</option></select><div class="row"><button class="btnSmall" style="background:#059669;color:#fff" onclick="markAtt('P')">Present</button><button class="btnSmall" style="background:#DC2626;color:#fff" onclick="markAtt('A')">Absent</button></div><p id="aMsg" class="msg ok"></p><div id="teacherAttList"></div></div>
+</div>
+
+<div id="viewNotes" class="hidden"><h3 style="color:#0A2A6B">Notes & Previous Year Papers</h3><p class="small">Branch-wise study material for AI&ML, CSE, ECE</p>
+<div class="item"><b>Operating System - Module 1 Notes</b><div class="small">AI&ML • 3rd Sem • PDF • 2.4 MB</div><button class="btnSmall" style="background:#0A2A6B;color:#fff;margin-top:8px" onclick="alert('Demo: Notes will download in full version')">Download Notes</button></div>
+<div class="item"><b>VTU PYQ - Operating System - Dec 2024</b><div class="small">Previous Year Paper • Solved</div><button class="btnSmall" style="background:#FFC107;color:#0A2A6B;margin-top:8px" onclick="alert('Demo: PYQ will download in full version')">Download PYQ</button></div>
+<div class="item"><b>Digital Electronics - Module 2 Notes</b><div class="small">AI&ML • 3rd Sem • PDF</div><button class="btnSmall" style="background:#0A2A6B;color:#fff;margin-top:8px">Download Notes</button></div>
+</div>
+
+<div id="viewTime" class="hidden"><h3 style="color:#0A2A6B">Class Timetable - 3rd Sem AI&ML</h3><table><tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th></tr><tr><td>9:00 - 10:00</td><td>OS</td><td>DE</td><td>DBMS</td></tr><tr><td>10:00 - 11:00</td><td>DBMS</td><td>OS</td><td>Maths</td></tr><tr><td>11:15 - 12:15</td><td>DE Lab</td><td>OS Lab</td><td>DE</td></tr></table><div class="notice"><b>Exam Timetable:</b> Internal 1 - 15 Dec 2026 • Internal 2 - 20 Jan 2027</div></div>
+
+<div id="viewNews" class="hidden"><h3 style="color:#0A2A6B">Announcements</h3><div class="notice"><b>Youth Day Celebration - 12 Jan</b><div class="small">VKIT celebrates Swami Vivekananda Jayanti. All students invited.</div></div><div class="notice" style="border-color:#0A2A6B;background:#EFF6FF"><b>Internal 1 Exam - 15 Dec</b><div class="small">Hall tickets available at department office.</div></div><div class="notice" style="border-color:#059669;background:#ECFDF5"><b>Placement Drive - Infosys</b><div class="small">7th Sem students - Register before 30 Nov.</div></div></div>
+
+<button class="btn" style="margin-top:18px" onclick="logout()">Logout</button>
+</div>
+<div class="footer">VKIT Student Hub • Vivekananda Institute of Technology<br>Kumbalagodu, Bengaluru - 560074 • vitb.ac.in</div>
+<script>
+let role='student',currentUser=null,currentUSN='';
+function setRole(r){role=r;['student','teacher','principal'].forEach(x=>document.getElementById('tab'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('active',x===r));document.getElementById('studentFields').classList.toggle('hidden',r!=='student');document.getElementById('teacherFields').classList.toggle('hidden',r!=='teacher');document.getElementById('principalFields').classList.toggle('hidden',r!=='principal');document.getElementById('authTitle').innerText=r==='student'?'Student Login':r==='teacher'?'Teacher Login':'Principal Login';}
+function toggleSignup(){document.getElementById('signupBox').classList.toggle('hidden');}
+function showTab(t){['marks','att','notes','time','news'].forEach(x=>document.getElementById('btn'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('active',x===t));document.getElementById('viewMarks').classList.toggle('hidden',t!=='marks');document.getElementById('viewAtt').classList.toggle('hidden',t!=='att');document.getElementById('viewNotes').classList.toggle('hidden',t!=='notes');document.getElementById('viewTime').classList.toggle('hidden',t!=='time');document.getElementById('viewNews').classList.toggle('hidden',t!=='news');}
+function validUSN(u){return /^1VK\d{2}(CS|EC|IS|AI|ME|CV|MB)\d{3}$/i.test(u);}
+function getUsers(){return JSON.parse(localStorage.getItem('vkit_users')||'{}');}
+function getMarks(){return JSON.parse(localStorage.getItem('vkit_marks')||'[]');}
+function getAtt(){return JSON.parse(localStorage.getItem('vkit_att')||'[]');}
+function signup(){let name=document.getElementById('sName').value.trim(),usn=document.getElementById('usn').value.trim().toUpperCase(),branch=document.getElementById('sBranch').value,sem=document.getElementById('sSem').value,pass=document.getElementById('sPass').value,msg=document.getElementById('msg'); if(!name||!usn||!branch||!sem||!pass){msg.innerText='Please fill all fields';return;} if(!validUSN(usn)){msg.innerText='Invalid USN like 1VK25AI032';return;} let u=getUsers(); if(u[usn]){msg.innerText='Already registered! Please Login';return;} u[usn]={name,branch,sem,pass}; localStorage.setItem('vkit_users',JSON.stringify(u)); msg.className='msg ok'; msg.innerText='Account Created! Now Login';}
+function loginStudent(){let usn=document.getElementById('usn').value.trim().toUpperCase(),pass=document.getElementById('pass').value,msg=document.getElementById('msg'); let u=getUsers(); if(!u[usn]){msg.innerText='USN not found! Create Account';return;} if(u[usn].pass!==pass){msg.innerText='Wrong Password';return;} openDash('student',u[usn],usn);}
+function loginTeacher(){let id=document.getElementById('tId').value.trim(),pass=document.getElementById('tPass').value; if(id==='VKIT-T001'&&pass==='vkit123') openDash('teacher',{name:'Priya Mam',branch:'ECE - Digital Electronics',sem:'5th Sem'},id); else document.getElementById('msg').innerText='Use Demo: VKIT-T001 / vkit123';}
+function loginPrincipal(){let id=document.getElementById('pId').value.trim(),pass=document.getElementById('pPass').value; if(id==='VKIT-P001'&&pass==='principal123') openDash('principal',{name:'Principal, VKIT',branch:'All Departments',sem:'All Semesters'},id); else document.getElementById('msg').innerText='Use Demo: VKIT-P001 / principal123';}
+function openDash(r,user,id){currentUser=user;currentUSN=id;document.getElementById('authCard').classList.add('hidden');document.getElementById('dashCard').classList.remove('hidden');document.getElementById('welcome').innerText='Welcome, '+user.name;document.getElementById('userInfo').innerHTML='<b>'+id+'</b> • '+user.branch+' • '+user.sem;document.getElementById('avatar').innerText=user.name.charAt(0);document.getElementById('rolePill').innerText=r==='student'?'STUDENT':r==='teacher'?'TEACHER':'PRINCIPAL';let isT=r==='teacher'||r==='principal';document.getElementById('teacherMarks').classList.toggle('hidden',!isT);document.getElementById('studentMarks').classList.toggle('hidden',isT);document.getElementById('teacherAtt').classList.toggle('hidden',!isT);document.getElementById('studentAtt').classList.toggle('hidden',isT);renderMarks();renderAtt();}
+function saveMarks(){let usn=document.getElementById('mUSN').value.trim().toUpperCase(),sub=document.getElementById('mSub').value,m1=+document.getElementById('m1').value,m2=+document.getElementById('m2').value,m3=+document.getElementById('m3').value,ma=+document.getElementById('mA').value; if(!validUSN(usn)){document.getElementById('tMsg').innerText='Enter valid USN';return;} let m=getMarks(); m=m.filter(x=>!(x.usn===usn&&x.sub===sub)); m.push({usn,sub,m1,m2,m3,ma}); localStorage.setItem('vkit_marks',JSON.stringify(m)); document.getElementById('tMsg').innerText='Marks Saved Successfully'; renderMarks();}
+function renderMarks(){let marks=getMarks(); let my=marks.filter(m=>m.usn===currentUSN); document.getElementById('myMarks').innerHTML=my.length?my.map(m=>{let avg=((m.m1+m.m2+m.m3)/3).toFixed(1); return `<div class="item"><b>${m.sub}</b> <span style="float:right" class="pill ${avg>=20?'green':'red'}">Avg ${avg} / 30</span><div class="small" style="margin-top:8px">Internal 1: <b>${m.m1}</b> &nbsp; Internal 2: <b>${m.m2}</b> &nbsp; Internal 3: <b>${m.m3}</b> &nbsp; Assignment: <b>${m.ma} / 10</b></div></div>`}).join(''):'<div class="item">No marks yet. Teacher will add soon.</div>'; document.getElementById('teacherMarksList').innerHTML=marks.length?'<table><tr><th>USN</th><th>Subject</th><th>I1</th><th>I2</th><th>I3</th></tr>'+marks.map(m=>`<tr><td>${m.usn}</td><td>${m.sub}</td><td>${m.m1}</td><td>${m.m2}</td><td>${m.m3}</td></tr>`).join('')+'</table>':'<p class="small">No marks yet</p>'; let avgAll=my.length?my.reduce((s,m)=>s+(m.m1+m.m2+m.m3)/3,0)/my.length:0; document.getElementById('predict').innerText=my.length?(avgAll>=20?'You are on track to PASS - Predicted: First Class':'Need to improve - Attend classes and revise notes'):'Add marks to see prediction';}
+function markAtt(status){let usn=document.getElementById('aUSN').value.trim().toUpperCase(),sub=document.getElementById('aSub').value; if(!validUSN(usn)){document.getElementById('aMsg').innerText='Enter valid USN';return;} let a=getAtt(); a.push({usn,sub,status,date:new Date().toLocaleDateString()}); localStorage.setItem('vkit_att',JSON.stringify(a)); document.getElementById('aMsg').innerText=status==='P'?'Marked Present':'Marked Absent'; renderAtt();}
+function renderAtt(){let att=getAtt(); let subs=['Digital Electronics','Operating System','DBMS','Signals & Systems']; let html=''; subs.forEach(sub=>{let list=att.filter(x=>x.usn===currentUSN&&x.sub===sub); if(!list.length) return; let total=list.length,present=list.filter(x=>x.status==='P').length,perc=Math.round(present/total*100); html+=`<div class="item"><b>${sub}</b> <span class="pill ${perc>=75?'green':'red'}">${perc}%</span><div class="small">${present}/${total} classes attended</div><div class="bar"><div style="width:${perc}%"></div></div>${perc<75?`<span style="color:#DC2626;font-size:13px;font-weight:700">Low Attendance - Attend next classes to reach 75%</span>`:`<span style="color:#059669;font-size:13px">Safe - Above 75%</span>`}</div>`;}); document.getElementById('myAtt').innerHTML=html||'<div class="item">No attendance yet. Teacher will mark soon.</div>'; document.getElementById('teacherAttList').innerHTML=att.length?'<table><tr><th>USN</th><th>Subject</th><th>Status</th><th>Date</th></tr>'+att.slice(-10).map(a=>`<tr><td>${a.usn}</td><td>${a.sub}</td><td>${a.status}</td><td>${a.date}</td></tr>`).join('')+'</table>':'<p class="small">No attendance yet</p>';}
+function logout(){document.getElementById('dashCard').classList.add('hidden');document.getElementById('authCard').classList.remove('hidden');}
+</script>
+</body>
+</html>
